@@ -41,5 +41,27 @@ namespace Postify.API.Controllers
             };
             return Ok(response);
         }
+
+
+        //GET: https://localhost:7096/api/Categories
+        [HttpGet]
+        public async Task<IActionResult> GetAllCategories()
+        {
+            //Call repository to get all categories
+            var categories = await categoryRepository.GetAllAsync();
+
+            //Map Domain Model to DTO
+            var response = new List<CategoryDto>();
+            foreach(var category in categories)
+            {
+                response.Add(new CategoryDto
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    UrlHandle = category.UrlHandle
+                });
+            }
+            return Ok(response);
+        }
     }
 }

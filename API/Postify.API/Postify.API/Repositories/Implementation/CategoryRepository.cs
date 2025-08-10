@@ -1,4 +1,5 @@
-﻿using Postify.API.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Postify.API.Data;
 using Postify.API.Models.Domain;
 using Postify.API.Repositories.Interface;
 
@@ -17,6 +18,11 @@ namespace Postify.API.Repositories.Implementation
             await dbContext.SaveChangesAsync();
 
             return category;
+        }
+
+        public async Task<IEnumerable<Category>> GetAllAsync()
+        {
+            return await dbContext.Categories.ToListAsync();
         }
     }
 }

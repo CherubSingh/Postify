@@ -76,3 +76,4 @@ C:\Users\Cherub Singh\Desktop\project\API\Postify.API\Postify.API\obj\Debug\net8
 C:\Users\Cherub Singh\Desktop\project\API\Postify.API\Postify.API\obj\Debug\net8.0\Postify.API.pdb
 C:\Users\Cherub Singh\Desktop\project\API\Postify.API\Postify.API\obj\Debug\net8.0\Postify.API.genruntimeconfig.cache
 C:\Users\Cherub Singh\Desktop\project\API\Postify.API\Postify.API\obj\Debug\net8.0\ref\Postify.API.dll
+C:\Users\Cherub Singh\Desktop\project\API\Postify.API\Postify.API\obj\Debug\net8.0\Postify.API.sourcelink.json
