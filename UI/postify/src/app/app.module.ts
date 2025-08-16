@@ -7,13 +7,15 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { CategoryListComponent } from './features/category/category-list/category-list.component';
 import { AddCategoryComponent } from './features/category/add-category/add-category.component';
 import { FormsModule } from '@angular/forms';//to allow submission of forms
-import {HttpClientModule} from '@angular/common/http';//to import the http client module
+import {HttpClientModule} from '@angular/common/http';
+import { EditCategoryComponent } from './features/category/edit-category/edit-category.component';//to import the http client module
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     CategoryListComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,
