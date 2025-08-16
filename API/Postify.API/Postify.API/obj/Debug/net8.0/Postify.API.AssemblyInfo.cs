@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Postify.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70d88a89c44cd38add8aba2880a0cbb323c113bb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0ce817ac461d8815f4ba4d48ef2130a65dd29db")]
 [assembly: System.Reflection.AssemblyProductAttribute("Postify.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Postify.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

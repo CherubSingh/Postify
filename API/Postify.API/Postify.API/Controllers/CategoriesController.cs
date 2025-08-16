@@ -18,7 +18,7 @@ namespace Postify.API.Controllers
         {
             this.categoryRepository = categoryRepository;
         }
-
+        //POST: https://localhost:7096/api/Categories
         [HttpPost]
         public async Task<IActionResult> CreateCategory(CreateCategoryRequestDto request)
         {
@@ -61,6 +61,58 @@ namespace Postify.API.Controllers
                     UrlHandle = category.UrlHandle
                 });
             }
+            return Ok(response);
+        }
+
+        //Get: https://localhost:7096/api/Categories/{id}
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> GetCategoryById([FromRoute] Guid id)
+        {
+            var existingcategory = await categoryRepository.GetByIdAsync(id);
+            if(existingcategory == null)
+            {
+                return NotFound();
+            }
+
+            //Map Domain Model to DTO
+            var response = new CategoryDto
+            {
+                Id = existingcategory.Id,
+                Name = existingcategory.Name,
+                UrlHandle = existingcategory.UrlHandle
+            };
+            return Ok(response);
+        }
+
+        //Put: https
+        [HttpPut]
+        [Route("{id:Guid}")]
+
+        public async Task<IActionResult> EditCategory([FromRoute] Guid id, UdateCategoryRequestDto request)
+        {
+            //convert DTo to Domain Model
+            var category = new Category
+            {
+                Id = id,
+                Name = request.Name,
+                UrlHandle = request.UrlHandle
+            };
+
+            category = await categoryRepository.UpdateAsync(category);
+            if(category==null)
+            {
+                return NotFound();
+            }
+
+            //convert Domain Model to DTo
+            var response = new CategoryDto
+            {
+                Id = category.Id,
+                Name = category.Name,
+                UrlHandle = category.UrlHandle
+            };
+
             return Ok(response);
         }
     }

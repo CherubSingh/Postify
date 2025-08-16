@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category.model';
 import { environment } from 'src/environments/environment.development';
+import { UpdateCategoryRequest } from '../models/Udate-Category-Request-model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,17 @@ export class CategoryService {
   {
     return this.http.post<void>(`${environment.apiBaseUrl}/api/categories`, model);
   }
-  getAllCategories(): Observable<Category[]>
+  GetAllCategories(): Observable<Category[]>
   {
-    return this.http.get<Category[]>(`${environment.apiBaseUrl}/api/Categories`);
+    return this.http.get<Category[]>(`${environment.apiBaseUrl}/api/categories`);
+  }
+  GetCategoryById(id: string): Observable<Category>
+  {
+    return this.http.get<Category>(`${environment.apiBaseUrl}/api/categories/${id}`);
   }
 
+  UpdateCategory(id: string, updateCategoryRequest: UpdateCategoryRequest): Observable<void>
+  {
+    return this.http.put<void>(`${environment.apiBaseUrl}/api/categories/${id}`, updateCategoryRequest);
+  }
 }

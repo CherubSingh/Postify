@@ -17,6 +17,18 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+// Add a named CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // Angular app URL
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,15 +38,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-// Enable CORS for all origins, methods, and headers; making it publicly accessible
-app.UseCors(options =>
-{
-    options.AllowAnyOrigin()
-           .AllowAnyMethod()
-           .AllowAnyHeader();
-});
 
+// Enable CORS for all origins, methods, and headers; making it publicly accessible
+//always use CORS before UseRouting and UseAuthorization
+app.UseCors("AllowAngularApp");
+app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
