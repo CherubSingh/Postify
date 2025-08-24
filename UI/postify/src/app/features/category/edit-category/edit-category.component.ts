@@ -39,7 +39,6 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
     });
   }
 
-//
   onFormSubmit(): void{
     const updateCategoryRequest: UpdateCategoryRequest = {
       name: this.category?.name ?? '',
@@ -57,6 +56,18 @@ export class EditCategoryComponent implements OnInit,OnDestroy {
     }
   }
 
+  onDeleteCategory(): void {
+    //Implement delete function
+    if(this.id)
+    {
+      this.categoryService.DeleteCategory(this.id)
+      .subscribe({
+        next: (response) => {
+          this.router.navigate(['/admin/category']);
+        }
+      });
+    }
+  }
   ngOnDestroy(): void {
     this.paramsSubscription?.unsubscribe();
     this.editCategorySubscription?.unsubscribe();

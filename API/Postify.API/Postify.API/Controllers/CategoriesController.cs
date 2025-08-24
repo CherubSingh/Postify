@@ -85,7 +85,7 @@ namespace Postify.API.Controllers
             return Ok(response);
         }
 
-        //Put: https
+        //Put: https://localhost:7096/api/Categories/{id}
         [HttpPut]
         [Route("{id:Guid}")]
 
@@ -113,6 +113,29 @@ namespace Postify.API.Controllers
                 UrlHandle = category.UrlHandle
             };
 
+            return Ok(response);
+        }
+
+        //Delete: https://localhost:7096/api/Categories/{id}
+        [HttpDelete]
+        [Route("{id:Guid}")]
+
+        public async Task<IActionResult> DelecteCategory([FromRoute] Guid id)
+        {
+            var category = await categoryRepository.DeleteAsync(id);
+
+            if (category==null)
+            {
+                return NotFound();
+            }
+
+            //convert Domain model to DTO
+            var response = new CategoryDto
+            {
+                Id = category.Id,
+                Name = category.Name,
+                UrlHandle = category.UrlHandle
+            };
             return Ok(response);
         }
     }

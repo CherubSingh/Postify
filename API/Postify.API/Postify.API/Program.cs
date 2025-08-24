@@ -38,11 +38,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseHttpsRedirection();
+app.UseRouting();
 // Enable CORS for all origins, methods, and headers; making it publicly accessible
 //always use CORS before UseRouting and UseAuthorization
 app.UseCors("AllowAngularApp");
-app.UseHttpsRedirection();
+
 app.UseAuthorization();
 
 app.MapControllers();
