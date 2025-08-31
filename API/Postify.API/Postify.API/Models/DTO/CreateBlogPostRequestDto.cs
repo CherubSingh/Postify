@@ -1,8 +1,7 @@
-﻿namespace Postify.API.Models.Domain
+﻿namespace Postify.API.Models.DTO
 {
-    public class BlogPost
+    public class CreateBlogPostRequestDto
     {
-        public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string ShortDescription { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
@@ -11,5 +10,6 @@
         public DateTime PublishedDate { get; set; } = DateTime.UtcNow;
         public string Author { get; set; } = string.Empty;
         public bool IsVisible { get; set; }
+
     }
 }

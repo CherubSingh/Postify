@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Postify.API.Controllers.BlogPostsController",
+    "Method": "CreateBlogPost",
+    "RelativePath": "api/BlogPosts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "requestDto",
+        "Type": "Postify.API.Models.DTO.CreateBlogPostRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Postify.API.Controllers.CategoriesController",
     "Method": "CreateCategory",
     "RelativePath": "api/Categories",

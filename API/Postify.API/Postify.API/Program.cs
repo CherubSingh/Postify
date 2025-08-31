@@ -16,7 +16,7 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PostifyConnectionString")));
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 // Add a named CORS policy
 builder.Services.AddCors(options =>
 {

@@ -1,6 +1,6 @@
-﻿namespace Postify.API.Models.Domain
+﻿namespace Postify.API.Models.DTO
 {
-    public class BlogPost
+    public class BlogPostDto
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
